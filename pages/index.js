@@ -13,50 +13,19 @@ const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopup.querySelector(".popup__form");
 const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
-// const todoTemplate = document.querySelector("#todo-template"); -> remove
 const todosList = document.querySelector(".todos__list");
 
 const openModal = (modal) => {
   modal.classList.add("popup_visible");
 };
 
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
-
-// The logic in this function should all be handled in the Todo class.
-const generateTodo = (data) => {
-  const todo = new Todo(data, "#todo-template");
-  const todoElement = todo.getView();
-  return todoElement;
-
-  // Remove
-
-  // todoNameEl.textContent = data.name;
-  // todoCheckboxEl.checked = data.completed;
-
-  // // Apply id and for attributes.
-  // // The id will initially be undefined for new todos.
-
-  // // If a due date has been set, parsing this it with `new Date` will return a
-  // // number. If so, we display a string version of the due date in the todo.
-  // const dueDate = new Date(data.date);
-  // if (!isNaN(dueDate)) {
-  //   todoDate.textContent = `Due: ${dueDate.toLocaleString("en-US", {
-  //     year: "numeric",
-  //     month: "short",
-  //     day: "numeric",
-  //   })}`;
-  // }
-
-  // todoDeleteBtn.addEventListener("click", () => {
-  //   todoElement.remove();
-  // });
-};
-
 addTodoButton.addEventListener("click", () => {
   openModal(addTodoPopup);
 });
+
+const closeModal = (modal) => {
+  modal.classList.remove("popup_visible");
+};
 
 addTodoCloseBtn.addEventListener("click", () => {
   closeModal(addTodoPopup);
@@ -69,15 +38,22 @@ addTodoForm.addEventListener("submit", (evt) => {
 
   const id = uuidv4();
   const values = { name, date, id };
-  const todo = generateTodo(values);
-  todosList.append(todo);
+  const todo = new Todo(values, "#todo-template");
+  todosList.append(todo.getView());
   closeModal(addTodoPopup);
 });
 
 initialTodos.forEach((item) => {
-  const todo = generateTodo(item);
-  todosList.append(todo);
+  const todo = new Todo(item, "#todo-template");
+  todosList.append(todo.getView());
 });
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
-newTodoValidator.enableValidation;
+newTodoValidator.enableValidation();
+
+addTodoButton.addEventListener("click", () => {
+  openModal(addTodoPopup);
+  newTodoValidator.resetValidation();
+});
+
+//fix line 52
