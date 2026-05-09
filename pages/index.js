@@ -6,9 +6,6 @@ import Todo from "../components/Todo.js";
 
 import FormValidator from "../components/FormValidator.js";
 
-console.log(initialTodos);
-console.log(validationConfig);
-
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopup = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopup.querySelector(".popup__form");

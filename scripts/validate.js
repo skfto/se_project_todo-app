@@ -1,11 +1,6 @@
 import FormValidator from "../components/FormValidator.js";
 
-export const showInputError = (
-  formEl,
-  inputElement,
-  errorMessage,
-  settings,
-) => {
+const showInputError = (formEl, inputElement, errorMessage, settings) => {
   const errorElementId = `#${inputElement.id}-error`;
   const errorElement = formEl.querySelector(errorElementId);
   inputElement.classList.add(settings.inputErrorClass);
@@ -13,7 +8,7 @@ export const showInputError = (
   errorElement.classList.add(settings.errorClass);
 };
 
-export const hideInputError = (formEl, inputElement, settings) => {
+const hideInputError = (formEl, inputElement, settings) => {
   const errorElementId = `#${inputElement.id}-error`;
   const errorElement = formEl.querySelector(errorElementId);
   inputElement.classList.remove(settings.inputErrorClass);
@@ -40,7 +35,7 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-export const toggleButtonState = (inputList, buttonElement, settings) => {
+const toggleButtonState = (inputList, buttonElement, settings) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(settings.inactiveButtonClass);
     buttonElement.disabled = true;

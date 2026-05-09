@@ -1,9 +1,3 @@
-import {
-  toggleButtonState,
-  hideInputError,
-  showInputError,
-} from "../scripts/validate.js";
-
 class FormValidator {
   constructor(settings, formEl) {
     this._settings = settings;
