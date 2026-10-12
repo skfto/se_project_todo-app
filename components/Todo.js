@@ -31,9 +31,6 @@ class Todo {
       this._data.completed = this._todoCheckboxEl.checked;
       this._handleCheck(this._data.completed);
     });
-
-    // this._toggelCompletion(this._completed);
-    // this._handleCheck();
   }
 
   _generateCheckboxEl() {

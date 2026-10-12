@@ -18,4 +18,4 @@ This app helps you to keeps track of your everyday responsibilities. It includes
 
 This project is deployed on GitHub Pages:
 
-https://github.com/skfto/se_project_todo-app.git
+https://skfto.github.io/se_project_todo-app/

@@ -70,6 +70,14 @@
   cursor: pointer;
 }
 
+.todo__delete-btn:hover {
+  color: #f44;
+  background-color: transparent;
+  border: none;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 .todo__delete-btn::before {
   content: "Delete";
 }

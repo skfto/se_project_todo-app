@@ -1,6 +1,6 @@
 class Popup {
-  constructor(popupSelector) {
-    this._popupElement = document.querySelector("#add-todo-popup");
+  constructor({ popupSelector }) {
+    this._popupElement = document.querySelector(popupSelector);
     this._popupCloseBtn = this._popupElement.querySelector(".popup__close");
 
     this._handleEscapeClose = (evt) => {
@@ -8,19 +8,19 @@ class Popup {
         this.close();
       }
     };
-
-    document.addEventListener("keydown", this._handleEscapeClose);
   }
 
   open() {
+    document.addEventListener("keydown", this._handleEscapeClose);
     this._popupElement.classList.add("popup_visible");
   }
 
   close() {
+    document.removeEventListener("keydown", this._handleEscapeClose);
     this._popupElement.classList.remove("popup_visible");
   }
 
-  setEventListener() {
+  setEventListeners() {
     this._popupCloseBtn.addEventListener("click", () => {
       this.close();
     });
