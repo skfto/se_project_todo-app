@@ -16,10 +16,7 @@ class TodoCounter {
     this._updateText();
   };
 
-  //Call the method to update the text content
   _updateText() {
-    // Set the text content of corresponding text element.
-    // Call this in the constructor and whenever the count gets updated
     this._element.textContent = `Showing ${this._completed} out of ${this._total} completed`;
   }
 }

@@ -1,5 +1,3 @@
-import FormValidator from "../components/FormValidator.js";
-
 const showInputError = (formEl, inputElement, errorMessage, settings) => {
   const errorElementId = `#${inputElement.id}-error`;
   const errorElement = formEl.querySelector(errorElementId);
